@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Online Course Registration</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <h1>Online Course Registration</h1>
+  <p>Fill in the form below. Fields marked * are required.</p>
+</header>
+
+<main class="wrap">
+  <form id="reg-form" action="process.php" method="post" novalidate>
+
+    <fieldset>
+      <legend>Personal Details</legend>
+      <div class="row">
+        <div class="field">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" name="name" placeholder="Disha Raikar">
+          <small class="error" id="name-err"></small>
+        </div>
+        <div class="field">
+          <label for="father">Father's Name *</label>
+          <input type="text" id="father" name="father">
+          <small class="error" id="father-err"></small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="dob">Date of Birth * <span id="age" class="age"></span></label>
+          <input type="date" id="dob" name="dob">
+          <small class="error" id="dob-err"></small>
+        </div>
+        <div class="field">
+          <label>Gender *</label>
+          <div class="choices" id="gender-box">
+            <label><input type="radio" name="gender" value="Male"> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+            <label><input type="radio" name="gender" value="Other"> Other</label>
+          </div>
+          <small class="error" id="gender-err"></small>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Contact Details</legend>
+      <div class="row">
+        <div class="field">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="name@example.com">
+          <small class="error" id="email-err"></small>
+        </div>
+        <div class="field">
+          <label for="phone">Mobile Number *</label>
+          <input type="text" id="phone" name="phone" maxlength="10" placeholder="10-digit number">
+          <small class="error" id="phone-err"></small>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="address">Address * <span class="count"><span id="count">0</span>/200</span></label>
+        <textarea id="address" name="address" rows="3" maxlength="200"></textarea>
+        <small class="error" id="address-err"></small>
+      </div>
+
+      <div class="row three">
+        <div class="field">
+          <label for="city">City *</label>
+          <input type="text" id="city" name="city">
+          <small class="error" id="city-err"></small>
+        </div>
+        <div class="field">
+          <label for="state">State *</label>
+          <select id="state" name="state">
+            <option value="">-- Select --</option>
+            <option>Karnataka</option>
+            <option>Maharashtra</option>
+            <option>Goa</option>
+            <option>Tamil Nadu</option>
+            <option>Kerala</option>
+            <option>Andhra Pradesh</option>
+            <option>Telangana</option>
+            <option>Other</option>
+          </select>
+          <small class="error" id="state-err"></small>
+        </div>
+        <div class="field">
+          <label for="pin">PIN Code *</label>
+          <input type="text" id="pin" name="pin" maxlength="6">
+          <small class="error" id="pin-err"></small>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Course Details</legend>
+      <div class="row">
+        <div class="field">
+          <label for="qualification">Highest Qualification *</label>
+          <select id="qualification" name="qualification">
+            <option value="">-- Select --</option>
+            <option>10th / SSLC</option>
+            <option>12th / PUC</option>
+            <option>Diploma</option>
+            <option>Bachelor's Degree</option>
+          </select>
+          <small class="error" id="qualification-err"></small>
+        </div>
+        <div class="field">
+          <label for="marks">Percentage Obtained *</label>
+          <input type="text" id="marks" name="marks" placeholder="e.g. 85.5">
+          <small class="error" id="marks-err"></small>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="course">Course Applying For *</label>
+        <select id="course" name="course">
+          <option value="">-- Select --</option>
+          <option>Full Stack Web Development</option>
+          <option>Python Programming</option>
+          <option>Data Structures with Java</option>
+          <option>UI / UX Design</option>
+          <option>Digital Marketing</option>
+        </select>
+        <small class="error" id="course-err"></small>
+      </div>
+
+      <div class="field">
+        <label>Skills You Already Know</label>
+        <div class="choices">
+          <label><input type="checkbox" name="skills[]" value="HTML"> HTML</label>
+          <label><input type="checkbox" name="skills[]" value="CSS"> CSS</label>
+          <label><input type="checkbox" name="skills[]" value="JavaScript"> JavaScript</label>
+          <label><input type="checkbox" name="skills[]" value="Python"> Python</label>
+          <label><input type="checkbox" name="skills[]" value="Java"> Java</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="comments">Why do you want to join? (optional)</label>
+        <textarea id="comments" name="comments" rows="3" maxlength="200"></textarea>
+      </div>
+    </fieldset>
+
+    <div class="field declare">
+      <label><input type="checkbox" id="declare" name="declare" value="yes">
+        I declare that the information given above is true and correct. *</label>
+      <small class="error" id="declare-err"></small>
+    </div>
+
+    <div class="buttons">
+      <button type="submit" class="btn">Submit Application</button>
+      <button type="reset" class="btn outline">Reset</button>
+    </div>
+
+  </form>
+</main>
+
+<footer>Web Technologies Lab &bull; Programming Assignment 2</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
